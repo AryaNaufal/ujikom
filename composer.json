@@ -1,0 +1,19 @@
+{
+    "name": "aryan/ujikom",
+    "autoload": {
+        "psr-4": {
+            "App\\": [
+                "services/"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "Nastavnic",
+            "email": "arya.naufal.andt@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1"
+    }
+}
