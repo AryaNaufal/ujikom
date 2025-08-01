@@ -1,0 +1,16 @@
+{
+    "name": "aryan/pengadaan-ujikom",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Core\\": "core/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nastavnic",
+            "email": "arya.naufal.andt@gmail.com"
+        }
+    ],
+    "require": {}
+}

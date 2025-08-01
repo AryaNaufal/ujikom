@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+	<meta charset="utf-8" />
+	<title>Function Access Management</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="http://framework.spasi.com/assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
+	<link href="http://framework.spasi.com/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="http://framework.spasi.com/assets/plugins/easyui/themes/bootstrap/easyui.css" rel="stylesheet">
+	<link href="http://framework.spasi.com/assets/plugins/easyui/themes/icon.css" rel="stylesheet">
+	<link href="http://framework.spasi.com/assets/css/animate.min.css" rel="stylesheet" />
+	<link href="http://framework.spasi.com/assets/css/style.min.css" rel="stylesheet" />
+	<link href="http://framework.spasi.com/assets/css/style-responsive.min.css" rel="stylesheet" />
+	<link href="http://framework.spasi.com/assets/css/theme/default.css" rel="stylesheet" id="theme" />
+	<!-- ================== END BASE CSS STYLE ================== -->
+	
+	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+	<link href="http://framework.spasi.com/assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
+	<link href="http://framework.spasi.com/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" />
+    <link href="http://framework.spasi.com/assets/plugins/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet" />
+    <link href="http://framework.spasi.com/assets/plugins/DataTables/media/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+	<link href="http://framework.spasi.com/assets/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.min.css" rel="stylesheet" />
+    <link href="http://framework.spasi.com/assets/plugins/bootstrap-wysihtml5/src/bootstrap-wysihtml5.css" rel="stylesheet" />
+    <link href="http://framework.spasi.com/assets/plugins/select2/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="http://framework.spasi.com/assets/plugins/bootstrap-eonasdan-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+	<!-- ================== END PAGE LEVEL STYLE ================== -->
+	
+</head>
+<body class="body-frame">
+	<!-- begin #page-loader -->
+	<div id="page-loader" class="fade in"><span class="spinner"></span></div>
+	<!-- end #page-loader -->
+	
+	<!-- begin #page-container -->
+	<div id="page-container" class="fade">
+		
+		<!-- begin #content -->
+		<div id="content" class="content-full">
+			
+            <!-- begin row -->
+			<div class="row">
+			    <!-- begin col-12 -->
+			    <div class="col-md-12">
+                    
+                    <!-- begin tabs -->
+                    <div class="btn-group btn-group" style="margin-bottom:10px;">
+                                            </div>
+                    <!-- end tabs -->
+                    
+			        <!-- begin panel -->
+                    <div class="panel panel-inverse">
+                        <div class="panel-heading">
+                            <div class="panel-heading-btn">
+                                 
+                                <button type="button" class="btn btn-primary btn-xs button-add" onClick="location.reload();"><i class="fa fa-repeat"></i> Refresh</button>
+                            </div>
+                            <h4 class="panel-title">Function Access Management</h4>
+                        </div>
+                        <div class="panel-body">
+                            
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-body"></div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+                            <!-- /.modal -->
+                            
+                                        <form id="f1"  class="form-horizontal" role="form" method="post" action="/modules/utilities/function_access/p/0/" enctype="multipart/form-data">	
+            <input type="hidden" name="act" value="do_add">
+            <input type="hidden" name="name" value="">
+            
+            
+            
+            
+            
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="name">Name *</label>
+                <div class="col-lg-6 col-md-8 col-sm-10">
+                <input type="text" class="form-control" name="name" id="name" value="" >                
+                </div>
+            </div>
+            
+            
+            
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="access">Access </label>
+                <div class="col-lg-6 col-md-8 col-sm-10">
+                
+            <table id="tt" class="easyui-treegrid fixedtable"
+                data-options="url:'sample.json',idField:'id',treeField:'title'" width="100%">
+            <thead>
+                <tr>
+                    <th field="title" width="50%">Menu</th>
+                    <th field="read" width="10%">Read</th>
+                    <th field="add" width="10%">Add</th>
+                    <th field="edit" width="10%">Edit</th>
+                    <th field="delete" width="10%">Delete</th>
+                    <th field="checkrow" width="5%"> </th>
+                    <th field="uncheckrow" width="5%"> </th>
+                    <th field="show" width="0%"> </th>
+                </tr>
+            </thead>
+            </table>	
+            <button class="btn btn-primary btn-xs" onClick="$('.easyui-treegrid').treegrid('expandAll');return false;">Expand All</button> <button class="btn btn-primary btn-xs" onClick="$('.easyui-treegrid').treegrid('collapseAll');return false;">Collapse All</button>
+                        
+                </div>
+            </div>
+            
+            
+            
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                <button type="button" class="btn btn-primary button-back" onClick="window.location.href='/modules/utilities/function_access/p/0/'; return false" style="width:100px"><i class="fa fa-arrow-left" style="margin-right:10px"></i> Back</button>
+                <input type="submit" class="btn btn-primary button-submit" value="Add" style="width:100px;" />
+                </div>
+            </div>
+            </form>
+            (*) means field is mandatory                            
+                        </div>
+                    </div>
+                    <!-- end panel -->
+                </div>
+                <!-- end col-12 -->
+            </div>
+            <!-- end row -->
+		</div>
+		<!-- end #content -->
+		
+		<!-- begin scroll to top btn -->
+		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+		<!-- end scroll to top btn -->
+	</div>
+	<!-- end page container -->
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="http://framework.spasi.com/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
+	<script src="http://framework.spasi.com/assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+	<script src="http://framework.spasi.com/assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+	<script src="http://framework.spasi.com/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://framework.spasi.com/assets/plugins/easyui/jquery.easyui.min.js"></script>	
+	<!--[if lt IE 9]>
+		<script src="http://framework.spasi.com/assets/crossbrowserjs/html5shiv.js"></script>
+		<script src="http://framework.spasi.com/assets/crossbrowserjs/respond.min.js"></script>
+		<script src="http://framework.spasi.com/assets/crossbrowserjs/excanvas.min.js"></script>
+	<![endif]-->
+	<script src="http://framework.spasi.com/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="http://framework.spasi.com/assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+    <script src="http://framework.spasi.com/assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="http://framework.spasi.com/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+	<script src="http://framework.spasi.com/assets/plugins/bootstrap-fileinput/js/fileinput.min.js"></script>
+	<script src="http://framework.spasi.com/assets/plugins/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
+	<script src="http://framework.spasi.com/assets/plugins/bootstrap-wysihtml5/src/bootstrap-wysihtml5.js"></script>
+    <script src="http://framework.spasi.com/assets/js/form-wysiwyg.demo.min.js"></script>
+    <script src="http://framework.spasi.com/assets/plugins/masked-input/masked-input.min.js"></script>
+	<script src="http://framework.spasi.com/assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
+	<script src="http://framework.spasi.com/assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
+	<script src="http://framework.spasi.com/assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+	<script src="http://framework.spasi.com/assets/js/table-manage-default.demo.min.js"></script>
+	<script src="http://framework.spasi.com/assets/js/apps.min.js"></script>
+    <script src="http://framework.spasi.com/assets/plugins/auto-numeric/autoNumeric.js"></script>
+    <script src="http://framework.spasi.com/assets/plugins/jquery-form/jquery.form.min.js"></script>
+    <script src="http://framework.spasi.com/assets/plugins/bootstrap-daterangepicker/moment.js"></script>
+    <script src="http://framework.spasi.com/assets/plugins/select2/dist/js/select2.min.js"></script>
+    <script src="http://framework.spasi.com/assets/plugins/jquery-autocomplete/dist/jquery.autocomplete.min.js"></script>
+    <script src="http://framework.spasi.com/assets/plugins/bootstrap-eonasdan-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+	<!-- ================== END PAGE LEVEL JS ================== -->
+	
+	<script>
+		$(document).ready(function() {
+			App.init();
+			TableManageDefault.init();
+            FormWysihtml5.init();
+		});
+	</script>
+    <script>
+        function show_next( element ) {
+            
+            window[element + '_num']++;
+            $('.' + element + window[element + '_num']).show();
+            
+        }
+        
+        function check_row( men_id ) {
+        
+            $('#read_' + men_id).prop('checked', true);
+            $('#add_' + men_id).prop('checked', true);
+            $('#edit_' + men_id).prop('checked', true);
+            $('#delete_' + men_id).prop('checked', true);
+            
+        }
+        
+        function uncheck_row( men_id ) {
+            
+            $('#read_' + men_id).prop('checked', false);
+            $('#add_' + men_id).prop('checked', false);
+            $('#edit_' + men_id).prop('checked', false);
+            $('#delete_' + men_id).prop('checked', false);
+            
+        }
+        
+        $(document).ready(function() {
+            
+            $('#f1').ajaxForm(function(msg) { 
+                
+                $("#myModal").modal('show');
+                var IS_JSON = true;
+                try { var response = jQuery.parseJSON(msg);
+                } catch(err) { IS_JSON = false; }
+                if (IS_JSON) {
+                    $(".modal-body").html(response.message);
+                    if (response.status=='success') {
+                        setInterval(function(){ 
+                            location.href="/modules/utilities/function_access/p/0/";
+                        }, 1000);
+                    }
+                }
+                else {
+                    $(".modal-body").html(msg)	
+                }
+            });
+            
+            $('#dataTables').dataTable( {
+                "processing": true,
+                "serverSide": true,
+                "order": [[ 0, "asc" ]],
+                "ajax": "?act=list"
+            } );
+            
+            $('.input-group.date.multi').datepicker({
+                format: "dd/mm/yyyy",
+                multidate: true,
+                multidateSeparator: ","
+            });
+            
+            $('.input-group.date').datepicker({
+                format: "dd/mm/yyyy"
+            });
+            
+            $('.input-group.datetime').datetimepicker({
+                format: "DD/MM/YYYY HH:mm"
+            });
+            
+            $('.numeric').autoNumeric('init');
+            
+            $('.masked-input-date').mask("99/99/9999");
+            
+            $('.masked-input-datetime').mask("99/99/9999 99:99");
+            
+            $(".select2").select2();
+            
+                        
+        } );
+    </script>
+</body>
+
+</html>
+
+ 
