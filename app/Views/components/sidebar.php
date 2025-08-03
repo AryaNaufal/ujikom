@@ -15,7 +15,6 @@ $menuItems = [
         'icon' => 'fa fa-copy',
         'items' => [
             'sales' => 'Sales',
-            'invoice' => 'Invoice',
         ]
     ],
     'laporan' => [
@@ -23,7 +22,6 @@ $menuItems = [
         'icon' => 'fa fa-book',
         'items' => [
             'laporan-penjualan' => 'Laporan Penjualan',
-            'laporan-pembelian' => 'Laporan Pembelian',
         ]
     ]
 ];

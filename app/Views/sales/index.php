@@ -35,6 +35,9 @@
                                             Edit
                                         </a>
                                         <button class="btn btn-danger btn-delete-sales" data-id="<?= htmlspecialchars($sale['id_sales']) ?>">Delete</button>
+                                        <a href="<?= SERVER_NAME . "sales/print/" . $sale['id_sales'] ?>" target="_blank" class="btn btn-secondary">
+                                            Cetak PDF
+                                        </a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

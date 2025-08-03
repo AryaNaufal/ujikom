@@ -75,6 +75,9 @@ switch ($uri) {
     case (preg_match('#^/sales/edit/(\d+)$#', $uri, $matches) ? true : false):
         (new SalesController())->edit($matches[1]);
         break;
+    case (preg_match('#^/sales/print/(\d+)$#', $uri, $matches) ? true : false):
+        (new SalesController())->printPdf($matches[1]);
+        break;
     case '/sales/delete':
         (new SalesController())->delete();
         break;

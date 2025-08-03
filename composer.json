@@ -12,5 +12,7 @@
             "email": "arya.naufal.andt@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "dompdf/dompdf": "^3.1"
+    }
 }

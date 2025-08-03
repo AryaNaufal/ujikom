@@ -26,7 +26,7 @@ class Sales
     {
         $db = new DB();
         $sql = "SELECT 
-                    s.id_sales, s.tgl_sales, s.status, s.do_customer, c.id_customer, c.nama_customer, i.nama_item, t.quantity, t.amount, i.id_item
+                    s.id_sales, s.tgl_sales, s.status, s.do_customer, c.id_customer, c.nama_customer, i.nama_item, t.quantity, t.amount, i.id_item, i.harga_jual, (i.harga_jual * t.quantity) AS total
                 FROM 
                     sales s
                 LEFT JOIN 
