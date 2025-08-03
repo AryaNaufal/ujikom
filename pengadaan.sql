@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 01, 2025 at 04:08 PM
+-- Generation Time: Aug 03, 2025 at 03:59 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -122,7 +122,7 @@ CREATE TABLE `transaction` (
   `id_item` int(11) NOT NULL,
   `quantity` int(50) NOT NULL,
   `price` varchar(100) NOT NULL,
-  `amount` int(50) NOT NULL
+  `amount` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -174,20 +174,15 @@ ALTER TABLE `petugas`
 --
 ALTER TABLE `sales`
   ADD PRIMARY KEY (`id_sales`),
-  ADD KEY `sales_ibfk_1` (`id_customer`);
+  ADD KEY `sales_ibfk_1` (`id_customer`),
+  ADD KEY `do_customer` (`do_customer`) USING BTREE;
 
 --
 -- Indexes for table `transaction`
 --
 ALTER TABLE `transaction`
   ADD PRIMARY KEY (`id_transaction`),
-  ADD KEY `transaction_ibfk_2` (`id_item`);
-
---
--- Indexes for table `transaction_temp`
---
-ALTER TABLE `transaction_temp`
-  ADD PRIMARY KEY (`id_transaction`);
+  ADD UNIQUE KEY `id_item` (`id_item`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -237,8 +232,8 @@ ALTER TABLE `sales`
 -- Constraints for table `transaction`
 --
 ALTER TABLE `transaction`
-  ADD CONSTRAINT `transaction_ibfk_1` FOREIGN KEY (`id_transaction`) REFERENCES `transaction_temp` (`id_transaction`),
-  ADD CONSTRAINT `transaction_ibfk_2` FOREIGN KEY (`id_item`) REFERENCES `item` (`id_item`);
+  ADD CONSTRAINT `transaction_ibfk_1` FOREIGN KEY (`id_item`) REFERENCES `item` (`id_item`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `transaction_ibfk_2` FOREIGN KEY (`id_transaction`) REFERENCES `sales` (`id_sales`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
