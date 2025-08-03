@@ -105,6 +105,10 @@ class Identitas
     public static function delete($id)
     {
         $db = new DB();
+        $fotoPath = $db->squery("SELECT foto FROM identitas WHERE id_identitas = :id", ['id' => $id][0]['foto']);
+        if (!empty($fotoPath) && file_exists('image/identitas/' . $fotoPath)) {
+            unlink('image/identitas/' . $fotoPath);
+        }
         return ResponseMessage::createSuccessResponse(
             'Identitas berhasil dihapus',
             $db->squery("DELETE FROM identitas WHERE id_identitas = :id", ['id' => $id])
