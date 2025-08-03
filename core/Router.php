@@ -5,6 +5,7 @@ use App\Controllers\DashboardController;
 use App\Controllers\IdentitasController;
 use App\Controllers\ItemController;
 use App\Controllers\PetugasController;
+use App\Controllers\SalesController;
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -63,6 +64,19 @@ switch ($uri) {
         break;
     case '/identitas/delete':
         (new IdentitasController())->delete();
+        break;
+    // Menu sales
+    case '/sales':
+        (new SalesController())->index();
+        break;
+    case '/sales/add':
+        (new SalesController())->add();
+        break;
+    case (preg_match('#^/sales/edit/(\d+)$#', $uri, $matches) ? true : false):
+        (new SalesController())->edit($matches[1]);
+        break;
+    case '/sales/delete':
+        (new SalesController())->delete();
         break;
     default:
         http_response_code(404);

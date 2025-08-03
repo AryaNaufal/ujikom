@@ -24,7 +24,7 @@
                 <h5>Orders</h5>
             </div>
             <div class="ibox-content">
-                <h1 class="no-margins">275,800</h1>
+                <h1 class="no-margins"><?= count($sales) ?></h1>
                 <small>New orders</small>
             </div>
         </div>

@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Item;
 use App\Models\Customer;
+use App\Models\Sales;
 
 use function Core\view;
 
@@ -19,6 +20,7 @@ class DashboardController
 
         $items = Item::all();
         $customers = Customer::all();
-        view('/index', ['customers' => $customers['data'], 'items' => $items['data']]);
+        $sales = Sales::all();
+        view('/index', ['customers' => $customers['data'], 'items' => $items['data'], 'sales' => $sales['data']]);
     }
 }
